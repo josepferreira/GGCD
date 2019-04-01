@@ -8,3 +8,11 @@
  ### Perguntas/API
  
  * *QUAIS?*
+ * Qual o assunto que trata o dataset?
+ * Quantas entradas tem o dataset?
+ * Origem dos dados recolhidos?
+ * Data em que os dados foram recohidos?
+ * Quantos parametros tem o dataset?
+ * Construir uma função do estilo *head*  para devolver uma amostra ?
+ * Qual o tamanho (em memória) ocupa?
+ 
