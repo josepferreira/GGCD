@@ -16,3 +16,5 @@
  * Construir uma função do estilo *head*  para devolver uma amostra ?
  * Qual o tamanho (em memória) ocupa?
  
+### LINK
+http://stat-computing.org/dataexpo/2009/the-data.html
