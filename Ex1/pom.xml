@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>dataproc.codelab</groupId>
+  <artifactId>word-count</artifactId>
+  <version>1.0</version>
+
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+
+  <dependencies>
+<!--    <dependency>-->
+<!--      <groupId>org.scala-lang</groupId>-->
+<!--      <artifactId>scala-library</artifactId>-->
+<!--      <version>2.11.12</version>-->
+<!--      <scope>provided</scope>-->
+<!--    </dependency>-->
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-core_2.12</artifactId>
+      <version>2.4.3</version>
+<!--      <scope>provided</scope>-->
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.hortonworks/shc-core -->
+      <dependency>
+          <groupId>com.hortonworks</groupId>
+          <artifactId>shc-core</artifactId>
+          <version>1.1.1-2.1-s_2.11</version>
+      </dependency>
+
+
+    <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-sql -->
+<!--    <dependency>-->
+<!--      <groupId>org.apache.spark</groupId>-->
+<!--      <artifactId>spark-sql_2.12</artifactId>-->
+<!--      <version>2.4.3</version>-->
+<!--        <scope>provided</scope>-->
+<!--    </dependency>-->
+      <!-- https://mvnrepository.com/artifact/org.apache.hbase/hbase-mapreduce -->
+      <dependency>
+          <groupId>org.apache.hbase</groupId>
+          <artifactId>hbase-mapreduce</artifactId>
+          <version>2.1.4</version>
+      </dependency>
+
+
+      <dependency>
+          <groupId>org.apache.hbase</groupId>
+          <artifactId>hbase-client</artifactId>
+          <version>2.1.1</version>
+      </dependency>
+
+<!--      &lt;!&ndash; https://mvnrepository.com/artifact/org.apache.hbase/hbase-mapreduce &ndash;&gt;-->
+<!--      <dependency>-->
+<!--          <groupId>org.apache.hbase</groupId>-->
+<!--          <artifactId>hbase-spark</artifactId>-->
+<!--          <version>2.0.0-alpha4</version>-->
+<!--          <scope>system</scope>-->
+<!--          <systemPath>${project.basedir}/src/main/resources/lib/hbase-spark-2.0.0-alpha4.jar</systemPath>-->
+<!--      </dependency>-->
+
+<!--      <dependency>-->
+<!--          <groupId>org.apache.spark</groupId>-->
+<!--          <artifactId>spark-streaming_2.11</artifactId>-->
+<!--          <version>1.5.2</version>-->
+<!--      </dependency>-->
+
+<!--      <dependency>-->
+<!--          <groupId>org.apache.spark</groupId>-->
+<!--          <artifactId>spark-core_2.10</artifactId>-->
+<!--          <version>1.5.2</version>-->
+<!--      </dependency>-->
+
+<!--      <dependency>-->
+<!--          <groupId>org.apache.spark</groupId>-->
+<!--          <artifactId>spark-sql_2.10</artifactId>-->
+<!--          <version>1.5.2</version>-->
+<!--      </dependency>-->
+
+<!--      <dependency>-->
+<!--          <groupId>org.apache.spark</groupId>-->
+<!--          <artifactId>spark-streaming-kafka-0-8_2.11</artifactId>-->
+<!--          <version>1.6.2</version>-->
+<!--      </dependency>-->
+  </dependencies>
+</project>
