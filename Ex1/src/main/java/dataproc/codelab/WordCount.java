@@ -1,5 +1,6 @@
 package dataproc.codelab;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +11,11 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.Cell;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.client.Result;
+import org.apache.hadoop.hbase.client.Scan;
+import org.apache.hadoop.hbase.filter.CompareFilter;
+import org.apache.hadoop.hbase.filter.Filter;
+import org.apache.hadoop.hbase.filter.RegexStringComparator;
+import org.apache.hadoop.hbase.filter.RowFilter;
 import org.apache.hadoop.hbase.io.ImmutableBytesWritable;
 import org.apache.hadoop.hbase.mapreduce.TableInputFormat;
 import org.apache.spark.SparkConf;
@@ -19,10 +25,12 @@ import org.apache.spark.api.java.JavaSparkContext;
 import scala.Tuple2;
 import org.apache.hadoop.hbase.util.Bytes;
 
+import static org.apache.hadoop.hbase.mapreduce.TableMapReduceUtil.convertScanToString;
 
 
 public class WordCount {
   public static String convert(Result r){
+    System.out.println("Result: " + new String(r.getRow()));
     for(Map.Entry<byte[], NavigableMap<byte[],byte[]>> a: r.getNoVersionMap().entrySet()){
 
         System.out.println(new String(a.getKey()));
@@ -36,7 +44,7 @@ public class WordCount {
     }
     return "a";
   }
-  public static void main(String[] args) {
+  public static void main(String[] args) throws IOException {
     if (args.length != 2) {
       throw new IllegalArgumentException("Exactly 2 arguments are required: <inputUri> <outputUri>");
     }
@@ -51,12 +59,18 @@ public class WordCount {
 
     System.setProperty("user.name", "hdfs");
     System.setProperty("HADOOP_USER_NAME", "hdfs");
+    Scan scan = new Scan();
+//    scan.setRowPrefixFilter("97".getBytes());
+    Filter filter2 = new RowFilter(CompareFilter.CompareOp.EQUAL, // co RowFilterExample-2-Filter2 Another filter, this time using a regular expression to match the row keys.
+            new RegexStringComparator("^1205$"));
+    scan.setFilter(filter2);
 //    conf.set("hbase.master", "localhost:60000")
 //    conf.setInt("timeout", 120000)
-    conf.set("hbase.zookeeper.quorum", "172.19.0.3");
+    conf.set("hbase.zookeeper.quorum", "172.19.0.4");
     conf.set("hbase.zookeeper.property.clientPort", "2181");
 //    conf.set("zookeeper.znode.parent", "/hbase-unsecure")
     conf.set(TableInputFormat.INPUT_TABLE, tableName);
+    conf.set(TableInputFormat.SCAN, convertScanToString(scan));
 
 //    SparkContext javaSparkContext = new SparkContext(conf);
 //    javaSparkContext.hadoopConfiguration().set("spark.hbase.host", "172.19.0.4");
@@ -78,7 +92,6 @@ public class WordCount {
       data.values().map(a -> convert(a)).collect();
       System.out.println("CENASFXGHURYESTDFXCVJFERYGDS");
 
-      sparkContext.stop();
       System.out.println("Consegui");
 
 //      String catalog = "{\n" +
@@ -125,6 +138,7 @@ public class WordCount {
         e.printStackTrace();
       }
       sparkContext.close();
+      sparkContext.stop();
     }
   }
 }
