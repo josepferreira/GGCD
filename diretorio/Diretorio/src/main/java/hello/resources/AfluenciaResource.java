@@ -1,5 +1,7 @@
 package hello.resources;
 
+import hello.representations.Atrasos;
+import hello.representations.DiaSemana;
 import hello.representations.DistanciaAviao;
 
 import org.apache.hadoop.conf.Configuration;
@@ -11,6 +13,7 @@ import org.apache.hadoop.hbase.mapreduce.TableInputFormat;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaSparkContext;
+import org.jcodings.util.Hash;
 import scala.Tuple2;
 
 import javax.ws.rs.GET;
@@ -18,28 +21,29 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static org.apache.hadoop.hbase.mapreduce.TableMapReduceUtil.convertScanToString;
 
-@Path("/distancia")
+
+@Path("/afluencia")
 @Produces(MediaType.APPLICATION_JSON)
-public class HelloResource {
+public class AfluenciaResource {
     private final String template;
     private volatile String defaultName;
     private long counter;
-    private JavaSparkContext sparkContext;
 
-    public HelloResource(String template, String defaultName, JavaSparkContext jsc) {
+    public AfluenciaResource(String template, String defaultName) {
         this.template = template;
         this.defaultName = defaultName;
-        sparkContext = jsc;
     }
 
     @GET
-    public List<DistanciaAviao> sayHello() throws IOException {
-
+    @Path("/diaDaSemana")
+    public List<DiaSemana> diaSemana() throws IOException {
+        SparkConf config = new SparkConf().setMaster("local[*]").setAppName("DiaSemana");
+        JavaSparkContext sparkContext = new JavaSparkContext(config);
 
         Configuration conf = HBaseConfiguration.create();
         String tableName = "trafego";
@@ -47,8 +51,7 @@ public class HelloResource {
         System.setProperty("user.name", "hdfs");
         System.setProperty("HADOOP_USER_NAME", "hdfs");
         Scan scan = new Scan();
-        scan.addColumn("infoaviao".getBytes(), "TailNum".getBytes());
-        scan.addColumn("infoaviao".getBytes(), "Distance".getBytes());
+        scan.addColumn("infogerais".getBytes(),"DayOfWeek".getBytes());
         conf.set("hbase.zookeeper.quorum", "172.19.0.4");
         conf.set("hbase.zookeeper.property.clientPort", "2181");
         conf.set(TableInputFormat.INPUT_TABLE, tableName);
@@ -58,34 +61,24 @@ public class HelloResource {
             JavaPairRDD<ImmutableBytesWritable, Result> data =
                     sparkContext.newAPIHadoopRDD(conf, TableInputFormat.class, ImmutableBytesWritable.class, Result.class);
 
-            List<DistanciaAviao> res = data.values().mapToPair(a -> {
-                String aux = new String(a.getValue("infoaviao".getBytes(), "TailNum".getBytes()));
-                String b = new String(a.getValue("infoaviao".getBytes(), "Distance".getBytes()));
-                long dist = 0;
-                try{
-                    dist = Long.valueOf(b);
-                }
-                catch(Exception e){}
-                return new Tuple2<String,Long>(aux, dist);
-            }).reduceByKey((Long count1, Long count2) -> count1 + count2)
-                    .mapToPair(a -> {
-                        return new Tuple2<Long,String>(a._2,a._1);
+            List<DiaSemana> res = data.values()
+                    .map(a -> {
+                        String aux = new String(a.getValue("infogerais".getBytes(),"DayOfWeek".getBytes()));
+                        return aux;
                     })
-                    .sortByKey(false)
-                    .map(a -> new DistanciaAviao(a._1,a._2))
-                    .take(30);
-
-            System.out.println("CENASFXGHURYESTDFXCVJFERYGDS");
-
-            System.out.println("Consegui");
-
+                    .countByValue()
+                    .entrySet()
+                    .stream()
+                    .map(a -> new DiaSemana(a.getValue(),a.getKey()))
+                    .sorted()
+                    .collect(Collectors.toList());
             return res;
 
 
         }
         finally {
             System.out.println("Vou terminar");
-//            sparkContext.close();
+            sparkContext.close();
         }
     }
 
