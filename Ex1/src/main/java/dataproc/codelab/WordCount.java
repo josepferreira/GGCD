@@ -60,10 +60,11 @@ public class WordCount {
     System.setProperty("user.name", "hdfs");
     System.setProperty("HADOOP_USER_NAME", "hdfs");
     Scan scan = new Scan();
+    scan.addFamily("infoaviao".getBytes());
 //    scan.setRowPrefixFilter("97".getBytes());
-    Filter filter2 = new RowFilter(CompareFilter.CompareOp.EQUAL, // co RowFilterExample-2-Filter2 Another filter, this time using a regular expression to match the row keys.
-            new RegexStringComparator("^1205$"));
-    scan.setFilter(filter2);
+//    Filter filter2 = new RowFilter(CompareFilter.CompareOp.EQUAL, // co RowFilterExample-2-Filter2 Another filter, this time using a regular expression to match the row keys.
+//            new RegexStringComparator("^1205$"));
+//    scan.setFilter(filter2);
 //    conf.set("hbase.master", "localhost:60000")
 //    conf.setInt("timeout", 120000)
     conf.set("hbase.zookeeper.quorum", "172.19.0.4");

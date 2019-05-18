@@ -17,8 +17,11 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static org.apache.hadoop.hbase.mapreduce.TableMapReduceUtil.convertScanToString;
 
 @Path("/hello")
 @Produces(MediaType.APPLICATION_JSON)
@@ -33,7 +36,7 @@ public class HelloResource {
     }
 
     @GET
-    public List<DistanciaAviao> sayHello() {
+    public List<DistanciaAviao> sayHello() throws IOException {
         SparkConf config = new SparkConf().setMaster("local[*]").setAppName("Word Count");
         JavaSparkContext sparkContext = new JavaSparkContext(config);
 
@@ -43,10 +46,11 @@ public class HelloResource {
         System.setProperty("user.name", "hdfs");
         System.setProperty("HADOOP_USER_NAME", "hdfs");
         Scan scan = new Scan();
-        scan.setRowPrefixFilter("97".getBytes());
-        conf.set("hbase.zookeeper.quorum", "172.19.0.2");
+        scan.addFamily("infoaviao".getBytes());
+        conf.set("hbase.zookeeper.quorum", "172.19.0.4");
         conf.set("hbase.zookeeper.property.clientPort", "2181");
         conf.set(TableInputFormat.INPUT_TABLE, tableName);
+        conf.set(TableInputFormat.SCAN, convertScanToString(scan));
 
         try {
             JavaPairRDD<ImmutableBytesWritable, Result> data =
