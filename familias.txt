@@ -1,0 +1,7 @@
+Familias:
+
+Aeroportos: [Dest,Cancelados,Desviados]
+InfoAviao: [Aviao,DelayChegada,DelayPartida,Distancia]
+TipoAtrasos:[Weather,NAS,Carrier,SecuritY,LateAircraft]
+InfosGerais:[DayOfWeek,DepTime,ArrivalTime,UniqueCarrier,TailNumber,AirTime,Orig,Dest,Distance]
+
