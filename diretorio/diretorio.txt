@@ -1,0 +1,35 @@
+Cliente -- Diretorio
+(penso que só faz sentido o cliente pedir informações ao diretorio)
+
+GET /leilao => retorna a lista de todos os leiloes ativos
+GET /emissao => retorna a lista de todas as emissoes
+GET /empresa => retorna a lista de todas as empresas
+GET /empresa/<id>/leilao => retorna os resultados dos leiloes acabados
+GET /empresa/<id>/emissao => retorna os resultados das emissoes acabadas
+
+(depois podemos acrescentar mais algumas coisas, como o montante angariado por cada empresa e assim ... Mas para ja o essencial é isto, até mias os 3 primeiros pontos)
+
+------------------------------------------------
+
+Exchange -- Diretorio
+(penso que só faz sentido a exchange carregar informações para o diretorio)
+
+POST /leilao => adiciona um novo leilão à lista de leilões ativos
+POST /emissao => adiciona uma nova emissao à lista de emissões ativas
+PUT  /leilao/<id>/terminado => para marcar um leilao como terminado
+PUT  /emissao/<id>/terminado => para marcar uma emissao como terminado
+
+------------------------------------------------
+
+Informação a ser guardada no diretorio:
+
+O objeto Emissao e Leilao, pode ser o que está definido no exchange?
+lista com todos os leiloes/emissoes ativos
+HashMap<Empresa, List<leilao>> leiloes empresas (pode ser um set tambem ... )
+HashMap<Empresa, List<emissao>> emissoes empresas 
+
+-------------------------------------------------
+
+Futuro: Não é pedido no enunciado mas depois podemos acrescentar info sobre cada utilizador ... e fazer uns "tops" engraçados
+
+GET /exchange/<empresa> => retorna o endereço da exchange e a lista das empresas geridas por essa exchange

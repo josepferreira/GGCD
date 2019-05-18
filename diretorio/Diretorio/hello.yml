@@ -1,0 +1,5 @@
+template: Hello, %s!
+server:
+  applicationConnectors:
+    - type: http
+      port: 8080
