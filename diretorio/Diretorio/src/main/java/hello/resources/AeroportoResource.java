@@ -90,7 +90,6 @@ public class AeroportoResource {
         }
         finally {
             System.out.println("Vou terminar");
-            sparkContext.close();
         }
     }
 
@@ -131,7 +130,6 @@ public class AeroportoResource {
         }
         finally {
             System.out.println("Vou terminar");
-            sparkContext.close();
         }
     }
 

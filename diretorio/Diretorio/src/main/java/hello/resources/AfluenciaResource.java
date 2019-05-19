@@ -78,7 +78,6 @@ public class AfluenciaResource {
         }
         finally {
             System.out.println("Vou terminar");
-            sparkContext.close();
         }
     }
 

@@ -86,7 +86,6 @@ public class HelloResource {
         }
         finally {
             System.out.println("Vou terminar");
-//            sparkContext.close();
         }
     }
 

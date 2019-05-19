@@ -134,7 +134,6 @@ public class AtrasoResource {
         }
         finally {
             System.out.println("Vou terminar");
-//            sparkContext.close();
         }
     }
 
@@ -228,7 +227,6 @@ public class AtrasoResource {
         }
         finally {
             System.out.println("Vou terminar");
-//            sparkContext.close();
         }
     }
 

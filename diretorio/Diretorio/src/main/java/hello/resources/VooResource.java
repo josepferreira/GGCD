@@ -67,15 +67,28 @@ public class VooResource {
         conf.set(TableInputFormat.SCAN, convertScanToString(scan));
 
         try {
+            String[] colunas = {"DayOfWeek","DepTime","ArrTime","UniqueCarrier","TailNum","AirTime","Origin","Dest","Distance"};
+            String[] valores = new String[colunas.length];
             JavaPairRDD<ImmutableBytesWritable, Result> data =
                     sparkContext.newAPIHadoopRDD(conf, TableInputFormat.class, ImmutableBytesWritable.class, Result.class);
 
             List<VooInfo> res = data.values()
                     .map(a -> {
-                        String aux = new String(a.getValue("infogerais".getBytes(),"DayOfWeek".getBytes()));
                         String aux2 = new String(a.getRow());
                         String[] key = aux2.split("::");
-                        VooInfo vi = new VooInfo(key[0],aux,key[1]);
+                        for(int i = 0; i < colunas.length; i++){
+
+                            try{
+                                String aux = new String(a.getValue("infogerais".getBytes(),colunas[i].getBytes()));
+                                valores[i] = aux;
+                            }
+                            catch(Exception e){
+                                valores[i] = "null";
+                            }
+                        }
+                        VooInfo vi = new VooInfo(key[0],key[1],valores[0],valores[1],
+                                valores[2],valores[3],valores[4],valores[5],
+                                valores[6],valores[7],valores[8]);
                         return vi;
                     })
                     .collect();
@@ -85,7 +98,6 @@ public class VooResource {
         }
         finally {
             System.out.println("Vou terminar");
-            sparkContext.close();
         }
     }
 

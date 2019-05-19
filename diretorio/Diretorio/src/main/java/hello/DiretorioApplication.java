@@ -62,7 +62,6 @@ public class DiretorioApplication extends Application<DiretorioConfiguration> {
         }
         finally {
             System.out.println("Vou terminar asdfghjghdfsa");
-//            sparkContext.close();
         }
     }
 
