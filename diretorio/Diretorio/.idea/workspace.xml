@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f8d7443-0789-411c-9c84-2246ebad74ba" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Ex1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ex1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hello/DiretorioApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hello/DiretorioApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hello/representations/VooInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hello/representations/VooInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hello/resources/AeroportoResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hello/resources/AeroportoResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hello/resources/AfluenciaResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hello/resources/AfluenciaResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hello/resources/AtrasoResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hello/resources/AtrasoResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hello/resources/HelloResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hello/resources/HelloResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hello/resources/VooResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hello/resources/VooResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../comandosHbase.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../comandosHbase.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hello/health/Definicoes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hello/health/Definicoes.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,7 +20,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/hello/DiretorioApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
+            <state relative-caret-position="840">
               <caret line="64" selection-start-line="64" selection-end-line="64" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -38,7 +32,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/hello/resources/HelloResource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
+            <state relative-caret-position="990">
               <caret line="88" selection-start-line="88" selection-end-line="88" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -47,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/hello/resources/VooResource.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
-              <caret line="69" column="88" selection-start-line="69" selection-start-column="88" selection-end-line="69" selection-end-column="88" />
+              <caret line="69" column="104" selection-start-line="69" selection-start-column="104" selection-end-line="69" selection-end-column="104" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -59,10 +53,19 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/hello/health/Definicoes.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="43" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/hello/representations/VooInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="554">
+            <state relative-caret-position="585">
               <caret line="40" column="40" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -104,7 +107,6 @@
         <option value="$PROJECT_DIR$/src/main/java/hello/representations/AeroportoDesviado.java" />
         <option value="$PROJECT_DIR$/src/main/java/hello/representations/AeroportoCancelados.java" />
         <option value="$PROJECT_DIR$/src/main/java/hello/representations/DiaSemana.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hello/health/Definicoes.java" />
         <option value="$PROJECT_DIR$/src/main/java/hello/representations/VooInfo.java" />
         <option value="$PROJECT_DIR$/src/main/java/hello/resources/AeroportoResource.java" />
         <option value="$PROJECT_DIR$/src/main/java/hello/resources/AfluenciaResource.java" />
@@ -112,6 +114,7 @@
         <option value="$PROJECT_DIR$/src/main/java/hello/resources/AtrasoResource.java" />
         <option value="$PROJECT_DIR$/src/main/java/hello/resources/HelloResource.java" />
         <option value="$PROJECT_DIR$/src/main/java/hello/resources/VooResource.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hello/health/Definicoes.java" />
       </list>
     </option>
   </component>
@@ -149,6 +152,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Course" />
       <pane id="Scope" />
       <pane id="ProjectPane">
@@ -219,7 +223,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -265,7 +268,7 @@
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18994413" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19313647" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -395,13 +398,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hello/health/Definicoes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hello/representations/DiaSemana.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -457,7 +453,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hello/DiretorioApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
+        <state relative-caret-position="840">
           <caret line="64" selection-start-line="64" selection-end-line="64" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -467,7 +463,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hello/resources/HelloResource.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
+        <state relative-caret-position="990">
           <caret line="88" selection-start-line="88" selection-end-line="88" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -477,7 +473,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hello/representations/VooInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="554">
+        <state relative-caret-position="585">
           <caret line="40" column="40" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -488,10 +484,17 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/hello/resources/VooResource.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
-          <caret line="69" column="88" selection-start-line="69" selection-start-column="88" selection-end-line="69" selection-end-column="88" />
+          <caret line="69" column="104" selection-start-line="69" selection-start-column="104" selection-end-line="69" selection-end-column="104" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hello/health/Definicoes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="43" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="43" />
         </state>
       </provider>
     </entry>
