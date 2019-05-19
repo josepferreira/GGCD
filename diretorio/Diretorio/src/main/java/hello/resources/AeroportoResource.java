@@ -1,5 +1,6 @@
 package hello.resources;
 
+import hello.health.Definicoes;
 import hello.representations.AeroportoCancelados;
 import hello.representations.AeroportoDesviado;
 import hello.representations.Atrasos;
@@ -41,10 +42,12 @@ public class AeroportoResource {
     private final String template;
     private volatile String defaultName;
     private long counter;
+    private JavaSparkContext sparkContext;
 
-    public AeroportoResource(String template, String defaultName) {
+    public AeroportoResource(String template, String defaultName, JavaSparkContext jsc) {
         this.template = template;
         this.defaultName = defaultName;
+        sparkContext = jsc;
     }
 
 
@@ -54,11 +57,6 @@ public class AeroportoResource {
     @Path("/cancelados")
     public List<AeroportoCancelados> sayHello() throws IOException {
         System.out.println("Cheguei");
-        SparkConf config = new SparkConf().setMaster("local[*]").setAppName("Atraso C");
-        Class[] c = new Class[1];
-        c[0] = AeroportoCancelados.class;
-        config.registerKryoClasses(c);
-        JavaSparkContext sparkContext = new JavaSparkContext(config);
 
         Configuration conf = HBaseConfiguration.create();
         String tableName = "trafego";
@@ -70,8 +68,8 @@ public class AeroportoResource {
                 CompareFilter.CompareOp.GREATER_OR_EQUAL, new BinaryComparator(Bytes.toBytes("1")));
         scan.setFilter(filtro);
         scan.addColumn("aeroportos".getBytes(), "Dest".getBytes());
-        conf.set("hbase.zookeeper.quorum", "172.19.0.4");
-        conf.set("hbase.zookeeper.property.clientPort", "2181");
+        conf.set("hbase.zookeeper.quorum", Definicoes.ZKIP);
+        conf.set("hbase.zookeeper.property.clientPort", Definicoes.ZKPort);
         conf.set(TableInputFormat.INPUT_TABLE, tableName);
         conf.set(TableInputFormat.SCAN, convertScanToString(scan));
 
@@ -100,11 +98,6 @@ public class AeroportoResource {
     @Path("/desviados")
     public List<AeroportoDesviado> diverted() throws IOException {
         System.out.println("Cheguei");
-        SparkConf config = new SparkConf().setMaster("local[*]").setAppName("Atraso C");
-        Class[] c = new Class[1];
-        c[0] = AeroportoDesviado.class;
-        config.registerKryoClasses(c);
-        JavaSparkContext sparkContext = new JavaSparkContext(config);
 
         Configuration conf = HBaseConfiguration.create();
         String tableName = "trafego";
@@ -116,8 +109,8 @@ public class AeroportoResource {
                 CompareFilter.CompareOp.GREATER_OR_EQUAL, new BinaryComparator(Bytes.toBytes("1")));
         scan.setFilter(filtro);
         scan.addColumn("aeroportos".getBytes(), "Dest".getBytes());
-        conf.set("hbase.zookeeper.quorum", "172.19.0.4");
-        conf.set("hbase.zookeeper.property.clientPort", "2181");
+        conf.set("hbase.zookeeper.quorum", Definicoes.ZKIP);
+        conf.set("hbase.zookeeper.property.clientPort", Definicoes.ZKPort);
         conf.set(TableInputFormat.INPUT_TABLE, tableName);
         conf.set(TableInputFormat.SCAN, convertScanToString(scan));
 

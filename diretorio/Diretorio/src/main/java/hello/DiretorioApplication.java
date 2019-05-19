@@ -1,15 +1,11 @@
 package hello;
 
-import hello.representations.Atrasos;
-import hello.representations.DistanciaAviao;
-import hello.resources.AeroportoResource;
-import hello.resources.AfluenciaResource;
-import hello.resources.AtrasoResource;
+import hello.representations.*;
+import hello.resources.*;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
-import hello.resources.HelloResource;
 import hello.health.TemplateHealthCheck;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaSparkContext;
@@ -32,9 +28,14 @@ public class DiretorioApplication extends Application<DiretorioConfiguration> {
                     Environment environment) {
         System.out.println("Entrei");
         SparkConf config = new SparkConf().setMaster("local[*]").setAppName("APPGGCD");
-        Class[] c = new Class[2];
+        Class[] c = new Class[5];
         c[0] = Atrasos.class;
         c[1] = DistanciaAviao.class;
+        c[2] = VooInfo.class;
+        c[3] = AeroportoCancelados.class;
+        c[4] = AeroportoDesviado.class;
+
+
         config.registerKryoClasses(c);
         JavaSparkContext sparkContext = new JavaSparkContext(config);
         try {
@@ -46,10 +47,13 @@ public class DiretorioApplication extends Application<DiretorioConfiguration> {
                     new AtrasoResource(configuration.template, configuration.defaultName, sparkContext)
             );
             environment.jersey().register(
-                    new AfluenciaResource(configuration.template, configuration.defaultName)
+                    new AfluenciaResource(configuration.template, configuration.defaultName, sparkContext)
             );
             environment.jersey().register(
-                    new AeroportoResource(configuration.template, configuration.defaultName)
+                    new AeroportoResource(configuration.template, configuration.defaultName, sparkContext)
+            );
+            environment.jersey().register(
+                    new VooResource(configuration.template, configuration.defaultName, sparkContext)
             );
             System.out.println("PAssei");
 

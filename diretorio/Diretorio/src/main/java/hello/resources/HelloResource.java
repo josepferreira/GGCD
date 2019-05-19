@@ -1,5 +1,6 @@
 package hello.resources;
 
+import hello.health.Definicoes;
 import hello.representations.DistanciaAviao;
 
 import org.apache.hadoop.conf.Configuration;
@@ -49,8 +50,8 @@ public class HelloResource {
         Scan scan = new Scan();
         scan.addColumn("infoaviao".getBytes(), "TailNum".getBytes());
         scan.addColumn("infoaviao".getBytes(), "Distance".getBytes());
-        conf.set("hbase.zookeeper.quorum", "172.19.0.4");
-        conf.set("hbase.zookeeper.property.clientPort", "2181");
+        conf.set("hbase.zookeeper.quorum", Definicoes.ZKIP);
+        conf.set("hbase.zookeeper.property.clientPort", Definicoes.ZKPort);
         conf.set(TableInputFormat.INPUT_TABLE, tableName);
         conf.set(TableInputFormat.SCAN, convertScanToString(scan));
 
