@@ -3,3 +3,4 @@
 *.jar
 diretorio/Diretorio/target/*
 *.zip
+AvaliacaoDesempenho/*.class

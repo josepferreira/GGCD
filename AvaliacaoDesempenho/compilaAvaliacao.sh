@@ -1,0 +1,1 @@
+javac -cp .:\* AvaliacaoDesempenho.java
