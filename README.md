@@ -1,6 +1,11 @@
 # Interface WEB para pesquisa em tráfego aéreo
 ## Repositório para oTP da UC Gestão de Grandes Conjuntos de Dados
 
+## Relatório
+https://www.overleaf.com/3741857793phrvsgchzzpx
+https://www.overleaf.com/read/yygmnkhnnrty
+
+
 ### Objetivo
 
   O objetivo para o trabalho é realizar uma interface WEB para a pesquisa de informações relativas à área de saúde (**possivelmente obtidas do estado?**). O foco do trabalho está na forma como os dados são armazenados e como serão processados para responbder às perguntas que vamos responder (ou melhor a API).
