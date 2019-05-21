@@ -28,12 +28,13 @@ public class DiretorioApplication extends Application<DiretorioConfiguration> {
                     Environment environment) {
         System.out.println("Entrei");
         SparkConf config = new SparkConf().setMaster("local[*]").setAppName("APPGGCD");
-        Class[] c = new Class[5];
+        Class[] c = new Class[6];
         c[0] = Atrasos.class;
         c[1] = DistanciaAviao.class;
         c[2] = VooInfo.class;
         c[3] = AeroportoCancelados.class;
         c[4] = AeroportoDesviado.class;
+        c[5] = AviaoInfo.class;
 
 
         config.registerKryoClasses(c);
@@ -54,6 +55,9 @@ public class DiretorioApplication extends Application<DiretorioConfiguration> {
             );
             environment.jersey().register(
                     new VooResource(configuration.template, configuration.defaultName, sparkContext)
+            );
+            environment.jersey().register(
+                    new AviaoResource(configuration.template, configuration.defaultName, sparkContext)
             );
             System.out.println("PAssei");
 

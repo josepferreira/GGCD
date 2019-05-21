@@ -1,14 +1,14 @@
 package hello.resources;
 
+import com.google.common.base.Optional;
 import hello.health.Definicoes;
-import hello.representations.Atrasos;
-import hello.representations.DiaSemana;
-import hello.representations.DistanciaAviao;
+import hello.representations.*;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.client.Result;
 import org.apache.hadoop.hbase.client.Scan;
+import org.apache.hadoop.hbase.filter.*;
 import org.apache.hadoop.hbase.io.ImmutableBytesWritable;
 import org.apache.hadoop.hbase.mapreduce.TableInputFormat;
 import org.apache.spark.SparkConf;
@@ -20,6 +20,7 @@ import scala.Tuple2;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;
 import java.util.*;
@@ -81,5 +82,184 @@ public class AfluenciaResource {
         }
     }
 
+
+    @GET
+    @Path("/diaDoMes")
+    public List<DiaMes> diaMes(@QueryParam("mes") Optional<String> mesEscolhido) throws IOException {
+
+        Configuration conf = HBaseConfiguration.create();
+        String tableName = "trafego";
+
+        System.setProperty("user.name", "hdfs");
+        System.setProperty("HADOOP_USER_NAME", "hdfs");
+        Scan scan = new Scan();
+
+        if(mesEscolhido.isPresent()) {
+            System.out.println("Mes: " + mesEscolhido.get());
+            Filter filter = new RowFilter(CompareFilter.CompareOp.EQUAL,
+                    new RegexStringComparator("\\.*::.*/"+mesEscolhido.get()+"\\/.*"));
+            scan.setFilter(filter);
+        }
+        conf.set("hbase.zookeeper.quorum", Definicoes.ZKIP);
+        conf.set("hbase.zookeeper.property.clientPort", Definicoes.ZKPort);
+        conf.set(TableInputFormat.INPUT_TABLE, tableName);
+        conf.set(TableInputFormat.SCAN, convertScanToString(scan));
+
+        try {
+            JavaPairRDD<ImmutableBytesWritable, Result> data =
+                    sparkContext.newAPIHadoopRDD(conf, TableInputFormat.class, ImmutableBytesWritable.class, Result.class);
+
+            List<DiaMes> res = data.values()
+                    .map(a -> {
+                        String aux2 = new String(a.getRow());
+                        String[] key = aux2.split("::");
+                        String[] date = key[1].split("/");
+
+                        return date[2];
+
+                    })
+                    .countByValue()
+                    .entrySet()
+                    .stream()
+                    .map(a -> new DiaMes(a.getKey(),a.getValue()))
+                    .sorted()
+                    .collect(Collectors.toList());
+            return res;
+
+
+        }
+        finally {
+            System.out.println("Vou terminar");
+        }
+    }
+
+    public boolean filtraA(String a, String b){
+        System.out.println(a + b );
+        return a.equals(b);
+    }
+    @GET
+    @Path("/mesDoAno")
+    public List<MesAno> mesAno(@QueryParam("ano") Optional<String> ano) throws IOException {
+
+        Configuration conf = HBaseConfiguration.create();
+        String tableName = "trafego";
+
+        System.setProperty("user.name", "hdfs");
+        System.setProperty("HADOOP_USER_NAME", "hdfs");
+        Scan scan = new Scan();
+
+        if(ano.isPresent()) {
+            System.out.println("Ano: " + ano.get());
+            Filter filter = new RowFilter(CompareFilter.CompareOp.EQUAL,
+                    new RegexStringComparator("\\.*::"+ano.get()+"\\/.*/.*"));
+            scan.setFilter(filter);
+        }
+        conf.set("hbase.zookeeper.quorum", Definicoes.ZKIP);
+        conf.set("hbase.zookeeper.property.clientPort", Definicoes.ZKPort);
+        conf.set(TableInputFormat.INPUT_TABLE, tableName);
+        conf.set(TableInputFormat.SCAN, convertScanToString(scan));
+
+        try {
+            JavaPairRDD<ImmutableBytesWritable, Result> data =
+                    sparkContext.newAPIHadoopRDD(conf, TableInputFormat.class, ImmutableBytesWritable.class, Result.class);
+
+            List<MesAno> res = data.values()
+                    .map(a -> {
+                        String aux2 = new String(a.getRow());
+                        String[] key = aux2.split("::");
+                        String[] date = key[1].split("/");
+
+                        return date[1];
+
+                    })
+                    .countByValue()
+                    .entrySet()
+                    .stream()
+                    .map(a -> new MesAno(a.getKey(),a.getValue()))
+                    .sorted()
+                    .collect(Collectors.toList());
+            return res;
+
+
+        }
+        finally {
+            System.out.println("Vou terminar");
+        }
+    }
+
+
+    @GET
+    @Path("/horaMovimentada")
+    public List<HorasAeroporto> horaDia(@QueryParam("aeroporto") Optional<String> aeroporto) throws IOException {
+
+        Configuration conf = HBaseConfiguration.create();
+        String tableName = "trafego";
+
+        System.setProperty("user.name", "hdfs");
+        System.setProperty("HADOOP_USER_NAME", "hdfs");
+        Scan scan = new Scan();
+        scan.addFamily("infogerais".getBytes());
+/*
+        if(ano.isPresent()) {
+            System.out.println("Ano: " + ano.get());
+            Filter filter = new RowFilter(CompareFilter.CompareOp.EQUAL,
+        *///            new RegexStringComparator("\\.*::"+ano.get()+"\\/.*/.*"));
+        //    scan.setFilter(filter);
+        //}
+
+        SingleColumnValueFilter origem = new SingleColumnValueFilter("infogerais".getBytes(), "Origin".getBytes(), CompareFilter.CompareOp.EQUAL, aeroporto.get().getBytes());
+        SingleColumnValueFilter destino = new SingleColumnValueFilter("infogerais".getBytes(), "Dest".getBytes(), CompareFilter.CompareOp.EQUAL, aeroporto.get().getBytes());
+        List<Filter> lista = new ArrayList<>();
+        lista.add(origem);
+        lista.add(destino);
+        FilterList filterList = new FilterList(FilterList.Operator.MUST_PASS_ONE,lista);
+        scan.setFilter(filterList);
+        conf.set("hbase.zookeeper.quorum", Definicoes.ZKIP);
+        conf.set("hbase.zookeeper.property.clientPort", Definicoes.ZKPort);
+        conf.set(TableInputFormat.INPUT_TABLE, tableName);
+        conf.set(TableInputFormat.SCAN, convertScanToString(scan));
+
+        try {
+            JavaPairRDD<ImmutableBytesWritable, Result> data =
+                    sparkContext.newAPIHadoopRDD(conf, TableInputFormat.class, ImmutableBytesWritable.class, Result.class);
+
+            List<HorasAeroporto> res = data.values()
+                    //.filter(b -> { return filtraA(aeroporto.get(),new String(b.getValue("infogerais".getBytes(), "Origin".getBytes())));})
+                    .map(a -> {
+                        String aux;
+                        String or = new String(a.getValue("infogerais".getBytes(), "Origin".getBytes()));
+                        if(or.equals(aeroporto.get()))
+                            aux = new String(a.getValue("infogerais".getBytes(), "DepTime".getBytes()));
+                        else
+                            aux = new String(a.getValue("infogerais".getBytes(), "ArrTime".getBytes()));
+
+                        try{
+
+                            if(!aux.equals("")){ ;
+                                return aux.substring(0, aux.length() - 4);
+                            }
+                            else return "No Info";
+                        }
+                        catch(Exception e){
+                            return "No Info";
+                        }
+
+                    })
+                    .countByValue()
+                    .entrySet()
+                    .stream()
+                    .map(a -> new HorasAeroporto(a.getKey(),a.getValue()))
+                    .sorted()
+                    .collect(Collectors.toList());
+            return res;
+
+
+        }
+        finally {
+            System.out.println("Vou terminar");
+        }
+    }
+
 }
+
 
