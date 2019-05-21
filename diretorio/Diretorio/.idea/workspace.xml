@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f8d7443-0789-411c-9c84-2246ebad74ba" name="Default Changelist" comment="">
-<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/../.idea/diretorio.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/hello/representations/AviaoInfo.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/hello/representations/DiaMes.java" afterDir="false" />
@@ -12,8 +11,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hello/DiretorioApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hello/DiretorioApplication.java" afterDir="false" />
-=======
->>>>>>> 841bd310166e59fd2adffd7f4a3cede4d2a6d81c
       <change beforePath="$PROJECT_DIR$/src/main/java/hello/health/Definicoes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hello/health/Definicoes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hello/resources/AfluenciaResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hello/resources/AfluenciaResource.java" afterDir="false" />
     </list>
@@ -32,13 +29,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/hello/resources/HelloResource.java">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
             <state relative-caret-position="97">
               <caret line="41" column="40" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="40" />
-=======
-            <state relative-caret-position="529">
-              <caret line="64" selection-start-line="64" selection-end-line="64" />
->>>>>>> 841bd310166e59fd2adffd7f4a3cede4d2a6d81c
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -47,12 +39,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-<<<<<<< HEAD
-        <entry file="file://$PROJECT_DIR$/src/main/java/hello/representations/AviaoInfo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-60">
-              <caret line="5" column="46" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
-=======
         <entry file="file://$PROJECT_DIR$/src/main/java/hello/representations/DistanciaAviao.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
@@ -69,7 +55,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
               <caret line="74" column="16" selection-start-line="74" selection-start-column="16" selection-end-line="74" selection-end-column="16" />
->>>>>>> 841bd310166e59fd2adffd7f4a3cede4d2a6d81c
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -251,10 +236,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-<<<<<<< HEAD
       <pane id="PackagesPane" />
-=======
->>>>>>> 841bd310166e59fd2adffd7f4a3cede4d2a6d81c
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -295,7 +277,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="hello" type="462c0819:PsiDirectoryNode" />
-<<<<<<< HEAD
               <item name="health" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -305,8 +286,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="hello" type="462c0819:PsiDirectoryNode" />
-=======
->>>>>>> 841bd310166e59fd2adffd7f4a3cede4d2a6d81c
               <item name="representations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -326,11 +305,7 @@
           <select />
         </subPane>
       </pane>
-<<<<<<< HEAD
       <pane id="Scope" />
-=======
-      <pane id="PackagesPane" />
->>>>>>> 841bd310166e59fd2adffd7f4a3cede4d2a6d81c
       <pane id="Course" />
       <pane id="Scope" />
     </panes>
@@ -386,11 +361,7 @@
     <frame x="57" y="25" width="1309" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-<<<<<<< HEAD
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20585907" />
-=======
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19872306" />
->>>>>>> 841bd310166e59fd2adffd7f4a3cede4d2a6d81c
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -468,7 +439,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hello/health/TemplateHealthCheck.java">
-<<<<<<< HEAD
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
@@ -486,8 +456,6 @@
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/hbase/hbase-common/2.1.4/hbase-common-2.1.4.jar!/org/apache/hadoop/hbase/HBaseConfiguration.class">
-=======
->>>>>>> 841bd310166e59fd2adffd7f4a3cede4d2a6d81c
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
@@ -551,7 +519,6 @@
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/java/hello/representations/DiaMes.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -570,19 +537,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-60">
           <caret line="5" column="46" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
-=======
-    <entry file="file://$PROJECT_DIR$/src/main/java/hello/resources/VooResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="69" column="104" selection-start-line="69" selection-start-column="104" selection-end-line="69" selection-end-column="104" />
->>>>>>> 841bd310166e59fd2adffd7f4a3cede4d2a6d81c
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/java/hello/health/Definicoes.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -594,12 +554,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="97">
           <caret line="41" column="40" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="40" />
-=======
-    <entry file="file://$PROJECT_DIR$/src/main/java/hello/representations/VooInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="40" column="40" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
->>>>>>> 841bd310166e59fd2adffd7f4a3cede4d2a6d81c
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -608,25 +562,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hello/DiretorioApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
         <state relative-caret-position="-214">
           <caret line="61" column="32" lean-forward="true" selection-start-line="61" selection-start-column="32" selection-end-line="61" selection-end-column="32" />
-=======
-        <state relative-caret-position="529">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
->>>>>>> 841bd310166e59fd2adffd7f4a3cede4d2a6d81c
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/main/java/hello/resources/AviaoResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="79" column="14" lean-forward="true" selection-start-line="79" selection-start-column="14" selection-end-line="79" selection-end-column="14" />
-=======
     <entry file="file://$PROJECT_DIR$/src/main/java/hello/representations/DistanciaAviao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -641,7 +584,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="74" column="16" selection-start-line="74" selection-start-column="16" selection-end-line="74" selection-end-column="16" />
->>>>>>> 841bd310166e59fd2adffd7f4a3cede4d2a6d81c
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
