@@ -50,8 +50,8 @@ public class AvaliacaoDesempenho{
     public static void main(String[] args) throws Exception{
         JSONObject jo = new JSONObject();
         ArrayList<AvaliaDesempenho> clientes = new ArrayList<>();
-        int nClientes = 5;
-        int nTestes = 20;
+        int nClientes = 25;
+        int nTestes = 100;
         for(int i = 0; i < nClientes; i++){
             ArrayList<Thread> threads = new ArrayList<>();
             AvaliaDesempenho ad = new AvaliaDesempenho(args[0], nTestes);
@@ -77,7 +77,8 @@ public class AvaliacaoDesempenho{
             }
 
             // System.out.println(medicoesT);
-            jo.put(""+i,medicoesT);            
+            jo.put(""+(i+1),medicoesT); 
+	    System.out.println("Terminei: " + i);           
         }
 
         BufferedWriter writer = new BufferedWriter(new FileWriter(args[1]));
