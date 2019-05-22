@@ -2,6 +2,7 @@ package hello.resources;
 
 import hello.health.Definicoes;
 import hello.representations.Atrasos;
+import hello.representations.AviaoAtraso;
 import hello.representations.DistanciaAviao;
 
 import org.apache.hadoop.conf.Configuration;
@@ -137,6 +138,98 @@ public class AtrasoResource {
         }
     }
 
+    @GET
+    @Path("/atrasoPartida")
+    public List<AviaoAtraso> atrasoPartida () throws IOException {
+
+        Configuration conf = HBaseConfiguration.create();
+        String tableName = "trafego";
+        System.setProperty("user.name", "hdfs");
+        System.setProperty("HADOOP_USER_NAME", "hdfs");
+        Scan scan = new Scan();
+        scan.addFamily("infoaviao".getBytes());
+        conf.set("hbase.zookeeper.quorum", Definicoes.ZKIP);
+        conf.set("hbase.zookeeper.property.clientPort", Definicoes.ZKPort);
+        conf.set(TableInputFormat.INPUT_TABLE, tableName);
+        conf.set(TableInputFormat.SCAN, convertScanToString(scan));
+
+        try{
+            JavaPairRDD<ImmutableBytesWritable, Result> data =
+                    sparkContext.newAPIHadoopRDD(conf, TableInputFormat.class, ImmutableBytesWritable.class, Result.class);
+
+            List<AviaoAtraso> res = data.values()
+                                        .mapToPair(a -> {
+
+                                            String aviao = new String(a.getValue("infoaviao".getBytes(), "TailNum".getBytes()));
+                                            String atr = new String(a.getValue("infoaviao".getBytes(), "DepDelay".getBytes()));
+                                            long atraso = 0;
+                                            try {
+                                                atraso = Long.valueOf(atr);
+                                            }catch (Exception e){
+                                            }
+
+                                            return new Tuple2<String,Long>(aviao, atraso);
+                                        }).reduceByKey((Long count1, Long count2) -> count1 + count2)
+                                          .sortByKey(false)
+                                          .map(a -> new AviaoAtraso(a._2,a._1))
+                                          .collect();
+
+
+            return  res;
+
+            }catch(Exception e){
+
+            }
+        return null;
+
+
+    }
+    @GET
+    @Path("/atrasoChegada")
+    public List<AviaoAtraso> atrasoChegada () throws IOException {
+
+        Configuration conf = HBaseConfiguration.create();
+        String tableName = "trafego";
+        System.setProperty("user.name", "hdfs");
+        System.setProperty("HADOOP_USER_NAME", "hdfs");
+        Scan scan = new Scan();
+        scan.addFamily("infoaviao".getBytes());
+        conf.set("hbase.zookeeper.quorum", Definicoes.ZKIP);
+        conf.set("hbase.zookeeper.property.clientPort", Definicoes.ZKPort);
+        conf.set(TableInputFormat.INPUT_TABLE, tableName);
+        conf.set(TableInputFormat.SCAN, convertScanToString(scan));
+
+        try{
+            JavaPairRDD<ImmutableBytesWritable, Result> data =
+                    sparkContext.newAPIHadoopRDD(conf, TableInputFormat.class, ImmutableBytesWritable.class, Result.class);
+
+            List<AviaoAtraso> res = data.values()
+                    .mapToPair(a -> {
+
+                        String aviao = new String(a.getValue("infoaviao".getBytes(), "TailNum".getBytes()));
+                        String atr = new String(a.getValue("infoaviao".getBytes(), "ArrTime".getBytes()));
+                        long atraso = 0;
+                        try {
+                            atraso = Long.valueOf(atr);
+                        }catch (Exception e){
+                        }
+
+                        return new Tuple2<String,Long>(aviao, atraso);
+                    }).reduceByKey((Long count1, Long count2) -> count1 + count2)
+                    .sortByKey(false)
+                    .map(a -> new AviaoAtraso(a._2,a._1))
+                    .collect();
+
+
+            return  res;
+
+        }catch(Exception e){
+
+        }
+        return null;
+
+
+    }
     @GET
     @Path("/numeros")
     public List<Atrasos> nrAtrados() throws IOException {
