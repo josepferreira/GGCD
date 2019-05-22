@@ -16,13 +16,13 @@ public class VooInfo {
     public String Dest;
     public String Distance;
     @JsonCreator
-    public VooInfo(@JsonProperty("voo") String distancia, @JsonProperty("data") String data,
+    public VooInfo(@JsonProperty("voo") String voo, @JsonProperty("data") String data,
                    @JsonProperty("dia_semana") String numero_aviao,@JsonProperty("deptime") String numero_aviao2,
                    @JsonProperty("arrivaltime") String numero_aviao3,@JsonProperty("uc") String numero_aviao4,
                    @JsonProperty("tn") String numero_aviao5,@JsonProperty("at") String numero_aviao6,
                    @JsonProperty("or") String numero_aviao7,@JsonProperty("dest") String numero_aviao8,
                    @JsonProperty("dist") String numero_aviao9){
-        this.voo = distancia;
+        this.voo = voo;
         this.data = data;
         this.DayOfWeek = numero_aviao;
         this.DepTime = numero_aviao2;

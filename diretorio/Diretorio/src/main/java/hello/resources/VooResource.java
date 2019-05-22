@@ -10,6 +10,10 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.client.Result;
 import org.apache.hadoop.hbase.client.Scan;
+import org.apache.hadoop.hbase.filter.CompareFilter;
+import org.apache.hadoop.hbase.filter.Filter;
+import org.apache.hadoop.hbase.filter.RegexStringComparator;
+import org.apache.hadoop.hbase.filter.RowFilter;
 import org.apache.hadoop.hbase.io.ImmutableBytesWritable;
 import org.apache.hadoop.hbase.mapreduce.TableInputFormat;
 import org.apache.spark.SparkConf;
@@ -26,6 +30,8 @@ import javax.ws.rs.core.MediaType;
 import java.io.IOException;
 import java.util.*;
 import com.google.common.base.Optional;
+import scala.reflect.internal.Required;
+
 import java.util.stream.Collectors;
 
 import static org.apache.hadoop.hbase.mapreduce.TableMapReduceUtil.convertScanToString;
@@ -47,11 +53,7 @@ public class VooResource {
 
     @GET
     @Path("/infogerais")
-    public List<VooInfo> diaSemana(@QueryParam("voo") Optional<String> voo) throws IOException {
-
-        if(!voo.isPresent()){
-            return new ArrayList<>();
-        }
+    public List<VooInfo> InfosGerais(@QueryParam("voo") Optional<String> voo, @QueryParam("date") Optional<String> date) throws IOException {
 
         Configuration conf = HBaseConfiguration.create();
         String tableName = "trafego";
@@ -59,7 +61,24 @@ public class VooResource {
         System.setProperty("user.name", "hdfs");
         System.setProperty("HADOOP_USER_NAME", "hdfs");
         Scan scan = new Scan();
-        scan.setRowPrefixFilter((voo.get()+"::").getBytes());
+
+
+        if(voo.isPresent() && date.isPresent()){
+            System.out.println("Voo escolhido: " + voo.get());
+            System.out.println("Data escolhida: " + date.get());
+            scan.setRowPrefixFilter((voo.get()+"::"+date.get()).getBytes());
+        }
+        else if(voo.isPresent()){
+            System.out.println("Voo escolhido: " + voo.get());
+            scan.setRowPrefixFilter((voo.get()+"::").getBytes());
+        }
+        else if(date.isPresent()){
+            System.out.println("Data escolhida: " + date.get());
+            Filter filter = new RowFilter(CompareFilter.CompareOp.EQUAL,
+                    new RegexStringComparator("\\.*::"+date.get()));
+            scan.setFilter(filter);
+        }
+
         scan.addFamily("infogerais".getBytes());
         conf.set("hbase.zookeeper.quorum", Definicoes.ZKIP);
         conf.set("hbase.zookeeper.property.clientPort", Definicoes.ZKPort);

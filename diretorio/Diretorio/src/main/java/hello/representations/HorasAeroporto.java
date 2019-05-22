@@ -5,11 +5,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class HorasAeroporto implements Comparable {
     public String horas;
-    public long ocorrencias;
+    public long voos;
     @JsonCreator
     public HorasAeroporto(@JsonProperty("horas") String hora, @JsonProperty("ocorrencias") long nvezes){
         this.horas = hora;
-        this.ocorrencias = nvezes;
+        this.voos = nvezes;
     }
 
 
@@ -19,14 +19,14 @@ public class HorasAeroporto implements Comparable {
 
         HorasAeroporto avinf = (HorasAeroporto) o;
 
-        return Long.compare(avinf.ocorrencias,this.ocorrencias);
+        return Long.compare(avinf.voos,this.voos);
     }
 
 
     public String toString(){
         String res = "TotalVoos: {";
         res += "numero_aviao: " + this.horas;
-        res += "; numero_voos: " + this.ocorrencias + "}";
+        res += "; numero_voos: " + this.voos + "}";
 
         return res;
     }

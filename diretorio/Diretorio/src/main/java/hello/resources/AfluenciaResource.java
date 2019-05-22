@@ -95,7 +95,7 @@ public class AfluenciaResource {
         Scan scan = new Scan();
 
         if(mesEscolhido.isPresent()) {
-            System.out.println("Mes: " + mesEscolhido.get());
+            System.out.println("Mes escolhido: " + mesEscolhido.get());
             Filter filter = new RowFilter(CompareFilter.CompareOp.EQUAL,
                     new RegexStringComparator("\\.*::.*/"+mesEscolhido.get()+"\\/.*"));
             scan.setFilter(filter);
@@ -149,7 +149,7 @@ public class AfluenciaResource {
         Scan scan = new Scan();
 
         if(ano.isPresent()) {
-            System.out.println("Ano: " + ano.get());
+            System.out.println("Ano escolhido: " + ano.get());
             Filter filter = new RowFilter(CompareFilter.CompareOp.EQUAL,
                     new RegexStringComparator("\\.*::"+ano.get()+"\\/.*/.*"));
             scan.setFilter(filter);
@@ -199,13 +199,12 @@ public class AfluenciaResource {
         System.setProperty("HADOOP_USER_NAME", "hdfs");
         Scan scan = new Scan();
         scan.addFamily("infogerais".getBytes());
-/*
-        if(ano.isPresent()) {
-            System.out.println("Ano: " + ano.get());
-            Filter filter = new RowFilter(CompareFilter.CompareOp.EQUAL,
-        *///            new RegexStringComparator("\\.*::"+ano.get()+"\\/.*/.*"));
-        //    scan.setFilter(filter);
-        //}
+
+        if(!aeroporto.isPresent()) {
+            return new ArrayList<>();
+        }
+
+        System.out.println("Aeroporto escolhido: " + aeroporto.get());
 
         SingleColumnValueFilter origem = new SingleColumnValueFilter("infogerais".getBytes(), "Origin".getBytes(), CompareFilter.CompareOp.EQUAL, aeroporto.get().getBytes());
         SingleColumnValueFilter destino = new SingleColumnValueFilter("infogerais".getBytes(), "Dest".getBytes(), CompareFilter.CompareOp.EQUAL, aeroporto.get().getBytes());
