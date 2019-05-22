@@ -154,13 +154,12 @@ public class VooResource {
                 for (int i = 0; i < colunas.length; i++) {
 
                     try {
-                        String aux = new String(a.getValue("infogerais".getBytes(), colunas[i].getBytes()));
+                        String aux = new String(a.getValue("data".getBytes(), colunas[i].getBytes()));
                         valores[i] = aux;
                     } catch (Exception e) {
                         valores[i] = "null";
                     }
                 }
-                System.out.println("Info retirada");
                 VooInfo res = new VooInfo(key[0], key[1], valores[0], valores[1],
                         valores[2], valores[3], valores[4], valores[5],
                         valores[6], valores[7], valores[8]);
