@@ -50,8 +50,8 @@ public class AvaliacaoDesempenho{
     public static void main(String[] args) throws Exception{
         JSONObject jo = new JSONObject();
         ArrayList<AvaliaDesempenho> clientes = new ArrayList<>();
-        int nClientes = 10;
-        int nTestes = 10;
+        int nClientes = 25;
+        int nTestes = 100;
         for(int i = 0; i < nClientes; i++){
             ArrayList<Thread> threads = new ArrayList<>();
             AvaliaDesempenho ad = new AvaliaDesempenho(args[0], nTestes);

@@ -8,8 +8,8 @@ import hello.representations.DistanciaAviao;
 import hello.representations.VooInfo;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HBaseConfiguration;
-import org.apache.hadoop.hbase.client.Result;
-import org.apache.hadoop.hbase.client.Scan;
+import org.apache.hadoop.hbase.TableName;
+import org.apache.hadoop.hbase.client.*;
 import org.apache.hadoop.hbase.filter.CompareFilter;
 import org.apache.hadoop.hbase.filter.Filter;
 import org.apache.hadoop.hbase.filter.RegexStringComparator;
@@ -27,6 +27,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.io.IOException;
 import java.util.*;
 import com.google.common.base.Optional;
@@ -117,6 +118,62 @@ public class VooResource {
         }
         finally {
             System.out.println("Vou terminar");
+        }
+    }
+
+    @GET
+    @Path("/infototais")
+    public Response total(@QueryParam("voo") Optional<String> voo) throws IOException {
+
+        if (!voo.isPresent()) {
+            return Response.status(Response.Status.NOT_FOUND).entity("Não existe nenhum voo").build();
+        }
+
+        Configuration conf = HBaseConfiguration.create();
+        String tableName = "trafego";
+
+        System.setProperty("user.name", "hdfs");
+        System.setProperty("HADOOP_USER_NAME", "hdfs");
+        Get g = new Get(voo.get().getBytes());
+        conf.set("hbase.zookeeper.quorum", Definicoes.ZKIP);
+        conf.set("hbase.zookeeper.property.clientPort", Definicoes.ZKPort);
+
+
+        System.out.println("Conectado!");
+        try (Connection connection = ConnectionFactory.createConnection(conf)) {
+            System.out.println("Connection feita");
+            try (Table hTable = connection.getTable(TableName.valueOf(tableName))) {
+
+                Result a = hTable.get(g);
+                String[] colunas = {"DayOfWeek", "DepTime", "ArrTime", "UniqueCarrier", "TailNum", "AirTime", "Origin", "Dest", "Distance"};
+                String[] valores = new String[colunas.length];
+                System.out.println(a);
+                String aux2 = new String(a.getRow());
+                System.out.println(aux2);
+                String[] key = aux2.split("::");
+                for (int i = 0; i < colunas.length; i++) {
+
+                    try {
+                        String aux = new String(a.getValue("infogerais".getBytes(), colunas[i].getBytes()));
+                        valores[i] = aux;
+                    } catch (Exception e) {
+                        valores[i] = "null";
+                    }
+                }
+                System.out.println("Info retirada");
+                VooInfo res = new VooInfo(key[0], key[1], valores[0], valores[1],
+                        valores[2], valores[3], valores[4], valores[5],
+                        valores[6], valores[7], valores[8]);
+
+                return Response.ok(res).build();
+
+
+            }
+
+            catch (Exception e){
+                System.out.println("Vou terminar");
+                return Response.status(Response.Status.NOT_FOUND).entity("Não existe nenhum voo").build();
+            }
         }
     }
 
