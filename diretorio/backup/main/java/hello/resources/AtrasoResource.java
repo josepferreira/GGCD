@@ -23,6 +23,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -158,38 +159,38 @@ public class AtrasoResource {
                     sparkContext.newAPIHadoopRDD(conf, TableInputFormat.class, ImmutableBytesWritable.class, Result.class);
 
             List<AviaoAtraso> res = data.values()
-                    .mapToPair(a -> {
+                                        .mapToPair(a -> {
 
-                        String aviao = new String(a.getValue("infoaviao".getBytes(), "TailNum".getBytes()));
-                        String atr = new String(a.getValue("infoaviao".getBytes(), "DepDelay".getBytes()));
-                        long atraso = 0;
-                        try {
-                            float f = Float.valueOf(atr);
-                            if (f<0)
-                                f = f*(-1);
-                            atraso = (long) f;
-                        }catch (Exception e){
-                            System.out.println(e);
+                                            String aviao = new String(a.getValue("infoaviao".getBytes(), "TailNum".getBytes()));
+                                            String atr = new String(a.getValue("infoaviao".getBytes(), "DepDelay".getBytes()));
+                                            long atraso = 0;
+                                            try {
+                                                float f = Float.valueOf(atr);
+                                                if (f<0)
+                                                    f = f*(-1);
+                                                atraso = (long) f;
+                                            }catch (Exception e){
+                                                System.out.println(e);
 
-                        }
+                                            }
 
-                        return new Tuple2<String,Long>(aviao, atraso);
-                    }).reduceByKey((Long count1, Long count2) -> count1 + count2)
-                    .sortByKey(false)
-                    .collectAsMap()
-                    .entrySet()
-                    .stream()
-                    .map(a -> new AviaoAtraso(a.getValue(),a.getKey()))
-                    .sorted().limit(10)
-                    .collect(Collectors.toList());
+                                            return new Tuple2<String,Long>(aviao, atraso);
+                                        }).reduceByKey((Long count1, Long count2) -> count1 + count2)
+                                          .sortByKey(false)
+                                          .collectAsMap()
+                                          .entrySet()
+                                          .stream()
+                                          .map(a -> new AviaoAtraso(a.getValue(),a.getKey()))
+                                          .sorted().limit(10)
+                                          .collect(Collectors.toList());
 
 
 
             return  res;
 
-        }catch(Exception e){
+            }catch(Exception e){
 
-        }
+            }
         return null;
 
 

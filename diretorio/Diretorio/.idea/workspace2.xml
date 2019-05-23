@@ -2,11 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f8d7443-0789-411c-9c84-2246ebad74ba" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../.gitignore" afterDir="false" />
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hello/representations/AviaoAtraso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hello/representations/AviaoAtraso.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hello/resources/AtrasoResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hello/resources/AtrasoResource.java" afterDir="false" />
+=======
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hello/health/Definicoes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hello/health/Definicoes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hello/resources/AtrasoResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hello/resources/AtrasoResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hello/resources/VooResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hello/resources/VooResource.java" afterDir="false" />
+>>>>>>> fbb85a03acf19606f9f27ab266734ce5a89c82c8
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,8 +28,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/hello/health/Definicoes.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="45">
+<<<<<<< HEAD
+              <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
+=======
+              <caret line="3" column="43" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -37,6 +45,20 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+>>>>>>> fbb85a03acf19606f9f27ab266734ce5a89c82c8
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/hello/resources/VooResource.java">
+          <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="302">
+              <caret line="235" column="50" selection-start-line="235" selection-start-column="50" selection-end-line="235" selection-end-column="50" />
+=======
+            <state relative-caret-position="-10">
+              <caret line="150" column="32" selection-start-line="150" selection-start-column="32" selection-end-line="150" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -46,6 +68,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="795">
               <caret line="75" column="31" selection-start-line="75" selection-start-column="31" selection-end-line="75" selection-end-column="31" />
+>>>>>>> fbb85a03acf19606f9f27ab266734ce5a89c82c8
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -54,19 +77,39 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/src/main/java/hello/resources/AviaoResource.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-61">
+              <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+=======
         <entry file="file://$PROJECT_DIR$/src/main/java/hello/resources/AtrasoResource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2100">
-              <caret line="167" column="36" selection-start-line="167" selection-start-column="36" selection-end-line="167" selection-end-column="36" />
+            <state relative-caret-position="3120">
+              <caret line="327" selection-start-line="327" selection-end-line="327" />
+>>>>>>> fbb85a03acf19606f9f27ab266734ce5a89c82c8
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
+        <entry file="file://$PROJECT_DIR$/src/main/java/hello/resources/HelloResource.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="479">
+              <caret line="71" selection-start-line="71" selection-end-line="73" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+=======
         <entry file="file://$PROJECT_DIR$/src/main/java/hello/resources/AfluenciaResource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3570">
+            <state relative-caret-position="900">
               <caret line="264" selection-start-line="264" selection-end-line="264" />
+>>>>>>> fbb85a03acf19606f9f27ab266734ce5a89c82c8
             </state>
           </provider>
         </entry>
@@ -92,6 +135,7 @@
       <find>\\</find>
       <find>voo</find>
       <find>tableName</find>
+      <find>atraso</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -119,13 +163,19 @@
         <option value="$PROJECT_DIR$/src/main/java/hello/resources/AviaoResource.java" />
         <option value="$PROJECT_DIR$/src/main/java/hello/representations/DiaMes.java" />
         <option value="$PROJECT_DIR$/src/main/java/hello/representations/MesAno.java" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/src/main/java/hello/representations/HorasAeroporto.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hello/resources/AfluenciaResource.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hello/health/Definicoes.java" />
+=======
+>>>>>>> fbb85a03acf19606f9f27ab266734ce5a89c82c8
         <option value="$PROJECT_DIR$/src/main/java/hello/representations/AviaoAtraso.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hello/resources/AtrasoResource.java" />
         <option value="$PROJECT_DIR$/src/main/java/hello/resources/AfluenciaResource.java" />
         <option value="$PROJECT_DIR$/src/main/java/hello/representations/HorasAeroporto.java" />
         <option value="$PROJECT_DIR$/src/main/java/hello/representations/VooEspecificoInfo.java" />
         <option value="$PROJECT_DIR$/src/main/java/hello/representations/VooInfo.java" />
         <option value="$PROJECT_DIR$/src/main/java/hello/resources/VooResource.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hello/resources/AtrasoResource.java" />
         <option value="$PROJECT_DIR$/src/main/java/hello/health/Definicoes.java" />
       </list>
     </option>
@@ -154,10 +204,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1987" />
-    <option name="y" value="25" />
-    <option name="width" value="1853" />
-    <option name="height" value="1055" />
+    <option name="x" value="220" />
+    <option name="y" value="119" />
+    <option name="width" value="983" />
+    <option name="height" value="557" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -165,8 +215,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+<<<<<<< HEAD
       <pane id="Scope" />
+=======
+>>>>>>> fbb85a03acf19606f9f27ab266734ce5a89c82c8
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -235,7 +287,13 @@
           <select />
         </subPane>
       </pane>
+<<<<<<< HEAD
+      <pane id="PackagesPane" />
+=======
+      <pane id="Scope" />
+>>>>>>> fbb85a03acf19606f9f27ab266734ce5a89c82c8
       <pane id="Course" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -289,10 +347,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1987" y="25" width="1853" height="1055" extended-state="6" />
-    <editor active="true" />
+    <frame x="67" y="25" width="1299" height="743" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2401771" />
+<<<<<<< HEAD
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21804096" />
+=======
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22266561" />
+>>>>>>> fbb85a03acf19606f9f27ab266734ce5a89c82c8
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -301,7 +362,11 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.47948164" />
+<<<<<<< HEAD
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.43952483" />
+=======
+      <window_info anchor="bottom" id="Run" order="2" weight="0.6368078" />
+>>>>>>> fbb85a03acf19606f9f27ab266734ce5a89c82c8
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39739415" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -309,7 +374,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.032397408" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32736155" />
       <window_info anchor="bottom" id="Educational.CheckDetails" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -384,29 +449,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hello/representations/Saying.java">
+<<<<<<< HEAD
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hello/resources/AeroportoResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="79" column="45" lean-forward="true" selection-start-line="79" selection-start-column="45" selection-end-line="79" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hello/representations/DiaSemana.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="16" lean-forward="true" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -420,13 +466,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hello/representations/DistanciaAviao.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/hello/representations/HorasAeroporto.java">
+=======
+>>>>>>> fbb85a03acf19606f9f27ab266734ce5a89c82c8
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="390">
+          <caret line="27" column="45" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -437,36 +482,89 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hello/representations/Atrasos.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/hello/resources/VooResource.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="139">
+          <caret line="61" column="32" selection-start-line="61" selection-start-column="32" selection-end-line="61" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hello/representations/AviaoInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="46" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hello/representations/Atrasos.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" lean-forward="true" selection-start-line="17" selection-end-line="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/main/java/hello/representations/DiaSemana.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="16" selection-start-line="16" selection-end-line="25" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hello/representations/AviaoAtraso.java">
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/java/hello/representations/DiaMes.java">
+>>>>>>> fbb85a03acf19606f9f27ab266734ce5a89c82c8
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+          <folding>
+            <element signature="e#274#275#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hello/representations/VooInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="40" column="40" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/main/java/hello/representations/MesAno.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="14" selection-start-line="14" selection-end-line="21" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hello/resources/AeroportoResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="86" column="23" selection-start-line="86" selection-start-column="23" selection-end-line="86" selection-end-column="23" />
+=======
     <entry file="file://$PROJECT_DIR$/src/main/java/hello/resources/AviaoResource.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/hello/representations/AviaoInfo.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/hello/representations/AviaoAtraso.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/hello/representations/MesAno.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/hello/representations/HorasAeroporto.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/hello/representations/VooEspecificoInfo.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/hello/resources/VooResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1905">
-          <caret line="162" selection-start-line="162" selection-end-line="162" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hello/health/Definicoes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hello/representations/VooInfo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -481,99 +579,99 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="795">
           <caret line="75" column="31" selection-start-line="75" selection-start-column="31" selection-end-line="75" selection-end-column="31" />
+>>>>>>> fbb85a03acf19606f9f27ab266734ce5a89c82c8
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/main/java/hello/resources/AfluenciaResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1714">
+          <caret line="249" column="28" selection-start-line="248" selection-start-column="20" selection-end-line="249" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+=======
     <entry file="file://$PROJECT_DIR$/src/main/java/hello/resources/AtrasoResource.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2100">
-          <caret line="167" column="36" selection-start-line="167" selection-start-column="36" selection-end-line="167" selection-end-column="36" />
+        <state relative-caret-position="3120">
+          <caret line="327" selection-start-line="327" selection-end-line="327" />
+>>>>>>> fbb85a03acf19606f9f27ab266734ce5a89c82c8
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hello/resources/AfluenciaResource.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/hello/representations/DistanciaAviao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3570">
+<<<<<<< HEAD
+        <state relative-caret-position="255">
+          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hello/resources/HelloResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="71" selection-start-line="71" selection-end-line="73" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hello/resources/AviaoResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-61">
+          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+=======
+        <state relative-caret-position="900">
           <caret line="264" selection-start-line="264" selection-end-line="264" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hello/resources/VooResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-10">
+          <caret line="150" column="32" selection-start-line="150" selection-start-column="32" selection-end-line="150" selection-end-column="32" />
+>>>>>>> fbb85a03acf19606f9f27ab266734ce5a89c82c8
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hello/health/Definicoes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+<<<<<<< HEAD
+          <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hello/resources/AtrasoResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="235" column="50" selection-start-line="235" selection-start-column="50" selection-end-line="235" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+=======
+          <caret line="3" column="43" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="43" />
+>>>>>>> fbb85a03acf19606f9f27ab266734ce5a89c82c8
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>10</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
           <splitter-proportions>
             <option name="proportions">
               <list>
