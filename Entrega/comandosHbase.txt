@@ -1,0 +1,18 @@
+docker-compose up
+sudo docker exec -it -u hbase regionserver-1 hbase shell
+
+create 'trafego' , 'aeroportos','infoaviao','tipoatrasos','infogerais'
+
+#fora da shell
+sudo docker cp final.csv namenode-1:/tmp
+docker exec -ti -u hbase namenode-1 /bin/bash
+cd /tmp
+hdfs dfs -mkdir /tmp/
+hdfs dfs -copyFromLocal final.csv /tmp/
+
+sudo docker exec -it -u hbase regionserver-1 bash
+
+hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.separator=, -Dimporttsv.columns=HBASE_ROW_KEY,infogerais:DayOfWeek,infogerais:DepTime,infogerais:CRSDepTime,infogerais:ArrTime,infogerais:CRSArrTime,infogerais:UniqueCarrier,infogerais:TailNum,infogerais:ActualElapsedTime,infogerais:CRSElapsedTime,infogerais:AirTime,infoaviao:ArrDelay,infoaviao:DepDelay,infogerais:Origin,infogerais:Dest,infogerais:Distance,aeroportos:Cancelled,aeroportos:Diverted,tipoatrasos:CarrierDelay,tipoatrasos:WeatherDelay,tipoatrasos:NASDelay,tipoatrasos:SecurityDelay,tipoatrasos:LateAircraftDelay,aeroportos:Dest,infoaviao:Distance,infoaviao:TailNum trafego hdfs://namenode-1.vnet:8020/tmp/final.csv
+
+
+create 'trafego' , 'aeroportos','infoaviao','tipoatrasos','infogerais', SPLITS=> ['3943::2008/2/18']
