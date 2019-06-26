@@ -52,6 +52,28 @@ public class VooResource {
         sparkContext = jsc;
     }
 
+    private VooInfo infoGerais(Result a){
+        String[] colunas = {"DayOfWeek","DepTime","ArrTime","UniqueCarrier","TailNum","AirTime","Origin","Dest","Distance"};
+        String[] valores = new String[colunas.length];
+
+        String aux2 = new String(a.getRow());
+        String[] key = aux2.split("::");
+        for(int i = 0; i < colunas.length; i++){
+
+            try{
+                String aux = new String(a.getValue("infogerais".getBytes(),colunas[i].getBytes()));
+                valores[i] = aux;
+            }
+            catch(Exception e){
+                valores[i] = "null";
+            }
+        }
+        VooInfo vi = new VooInfo(key[0],key[1],valores[0],valores[1],
+                valores[2],valores[3],valores[4],valores[5],
+                valores[6],valores[7],valores[8]);
+        return vi;
+    }
+
     @GET
     @Path("/infogerais")
     public Response InfosGerais(@QueryParam("voo") Optional<String> voo, @QueryParam("date") Optional<String> date) throws IOException {
@@ -67,7 +89,26 @@ public class VooResource {
         if(voo.isPresent() && date.isPresent()){
             System.out.println("Voo escolhido: " + voo.get());
             System.out.println("Data escolhida: " + date.get());
-            scan.setRowPrefixFilter((voo.get()+"::"+date.get()).getBytes());
+            Get g = new Get((voo.get()+"::"+date.get()).getBytes());
+
+            System.out.println("Conectado!");
+            try (Connection connection = ConnectionFactory.createConnection(conf)) {
+                System.out.println("Connection feita");
+                try (Table hTable = connection.getTable(TableName.valueOf(tableName))) {
+
+                    Result a = hTable.get(g);
+                    VooInfo vi = infoGerais(a);
+
+                    return Response.ok(vi).build();
+                }
+                catch (Exception e){
+                    return Response.status(Response.Status.NOT_FOUND).entity(e.getMessage()).build();
+                }
+            }
+            catch(Exception e) {
+                e.printStackTrace();
+                return Response.status(Response.Status.NOT_FOUND).entity(e.getMessage()).build();
+            }
         }
         else if(voo.isPresent()){
             System.out.println("Voo escolhido: " + voo.get());
@@ -80,45 +121,29 @@ public class VooResource {
             scan.setFilter(filter);
         }
 
-        scan.addFamily("infogerais".getBytes());
+        scan.addFamily("InfosGerais".getBytes());
         conf.set("hbase.zookeeper.quorum", Definicoes.ZKIP);
         conf.set("hbase.zookeeper.property.clientPort", Definicoes.ZKPort);
         conf.set(TableInputFormat.INPUT_TABLE, tableName);
         conf.set(TableInputFormat.SCAN, convertScanToString(scan));
 
-        try {
-            String[] colunas = {"DayOfWeek","DepTime","ArrTime","UniqueCarrier","TailNum","AirTime","Origin","Dest","Distance"};
-            String[] valores = new String[colunas.length];
-            JavaPairRDD<ImmutableBytesWritable, Result> data =
-                    sparkContext.newAPIHadoopRDD(conf, TableInputFormat.class, ImmutableBytesWritable.class, Result.class);
+        try (Connection connection = ConnectionFactory.createConnection(conf)) {
+            System.out.println("Connection feita");
+            try (Table hTable = connection.getTable(TableName.valueOf(tableName))) {
+                ResultScanner res = hTable.getScanner(scan);
+                Iterator<Result> it = res.iterator();
 
-            List<VooInfo> res = data.values()
-                    .map(a -> {
-                        String aux2 = new String(a.getRow());
-                        String[] key = aux2.split("::");
-                        for(int i = 0; i < colunas.length; i++){
+                ArrayList<VooInfo> voos = new ArrayList<>();
+                while(it.hasNext()) {
+                    voos.add(infoGerais(it.next()));
+                }
 
-                            try{
-                                String aux = new String(a.getValue("infogerais".getBytes(),colunas[i].getBytes()));
-                                valores[i] = aux;
-                            }
-                            catch(Exception e){
-                                valores[i] = "null";
-                            }
-                        }
-                        VooInfo vi = new VooInfo(key[0],key[1],valores[0],valores[1],
-                                valores[2],valores[3],valores[4],valores[5],
-                                valores[6],valores[7],valores[8]);
-                        return vi;
-                    })
-                    .collect();
-            return Response.ok(res).build();
-
-
+                return Response.ok(voos).build();
+            }
         }
         catch(Exception e){
             System.out.println(e);
-            return Response.status(Response.Status.NOT_FOUND).entity("Não existe informação disponível").build();
+            return Response.status(Response.Status.NOT_FOUND).entity(e.getMessage()).build();
         }
     }
 

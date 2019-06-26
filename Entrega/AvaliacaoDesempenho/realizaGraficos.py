@@ -3,9 +3,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 import json
 
-ficheiro1 = sys.argv[1]
-ficheiro2 = sys.argv[2]
-label = sys.argv[3]
+args = len(sys.argv)
+
+ficheiros = []
+for i in range(1,args-1):
+    ficheiros.append(sys.argv[i])
+
+label = sys.argv[args-1]
 
 def read(nome):
     """
@@ -40,21 +44,31 @@ def leFicheiro(nome):
     
     return (x,y_m,y_95,y_99)
 
-def criaGrafico(x,y1,y2,label):
-    plt.plot(x, y1)
-    plt.plot(x, y2)
+def criaGrafico(x,y,label):
+    for i in y:
+        plt.plot(x,i)
+    
+    legend = []
+    for i in range(0,len(y)):
+        legend.append(str(i+1) + 'ª versao')
 
-    plt.legend(['1ªversão','2ªversão'], loc='upper left')
+    plt.legend(legend, loc='upper left')
 
     plt.title(label)
     plt.xlabel('Nr. clientes concorrentes')
     plt.ylabel('Tempo de resposta (ms)')
     plt.show()
 
+y_ms = []
+y_95s = []
+y_99s = []
+for fich in ficheiros:
+    (x,y_m,y_95,y_99) = leFicheiro(fich)
+    y_ms.append(y_m)
+    y_95s.append(y_95)
+    y_99s.append(y_99)
 
-(x,y_m,y_95,y_99) = leFicheiro(ficheiro1)
-(x,y_m2,y_952,y_992) = leFicheiro(ficheiro2)
-criaGrafico(x,y_m,y_m2,label+' (mediana)')
-criaGrafico(x,y_95,y_952,label+' (percentil_95)')
-criaGrafico(x,y_99,y_992,label+' (percentil_99)')
+criaGrafico(x,y_ms,label+' (mediana)')
+criaGrafico(x,y_95s,label+' (percentil_95)')
+criaGrafico(x,y_99s,label+' (percentil_99)')
 

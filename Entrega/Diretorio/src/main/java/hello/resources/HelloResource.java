@@ -202,7 +202,7 @@ public class HelloResource {
 
             // Create an object of filereader
             // class with CSV file as a parameter.
-            FileReader filereader = new FileReader("ola.csv");
+            FileReader filereader = new FileReader("cenas.csv");
 
             // create csvReader object passing
             // file reader as a parameter
@@ -232,7 +232,7 @@ public class HelloResource {
                 puts.add(processa(aux));
                 tamanho++;
 
-                if(tamanho > 2000){
+                if(tamanho > 10000){
                     insereValores(puts);
                     puts.clear();
                     tamanho = 0;
